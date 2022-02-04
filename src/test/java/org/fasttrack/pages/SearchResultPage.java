@@ -4,6 +4,7 @@ import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.WebElementFacade;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.Select;
 
@@ -34,6 +35,9 @@ public class SearchResultPage extends BasePage{
     @FindBy (css = ".price :not(del) .woocommerce-Price-amount, .price>.amount")
     private List<WebElementFacade> priceListInSearch;
 
+    @FindBy (css = ".woocommerce-info")
+    private WebElementFacade noProductsInSearchResultsMessage;
+
 
     public boolean isSearchCorrect(String name){
         for (WebElementFacade element : productsList){
@@ -47,22 +51,28 @@ public class SearchResultPage extends BasePage{
     public void clickAddToCartButtonFirstSearchProduct(){
         clickOn(addToCartButtonFirstSearchProduct);
     }
+
     public void clickAddToCartButtonSecondSearchProduct(){
         clickOn(addToCartButtonSecondSearchProduct);
     }
+
     public void clickAddToCartButtonThirdSearchProduct(){
         clickOn(addToCartButtonThirdSearchProduct);
     }
+
     public void clickViewCartButtonInSearch(){
         clickOn(viewCartButtonInSearch);
     }
+
     public void clickFirstItemInSearch(){
         clickOn(searchResultFirstItem);
     }
+
     public void selectAscendingPriceOption(){
         Select options = new Select(sortButtonInSearch);
         options.selectByValue("price");
     }
+
     public void selectDescendingPriceOption(){
         Select options = new Select(sortButtonInSearch);
         options.selectByValue("price-desc");
@@ -95,4 +105,18 @@ public class SearchResultPage extends BasePage{
         }
         return false;
     }
+
+    public boolean assertFirstSearchProductIsDisplayed(){
+        if (searchResultFirstItem.isDisplayed()){
+            return true;
+        }
+        return false;
+    }
+
+    public void noProductsDisplayedInSearch(){
+        Assert.assertFalse(sortButtonInSearch.isPresent());
+        Assert.assertFalse(searchResultFirstItem.isPresent());
+        Assert.assertEquals("No products were found matching your selection.", noProductsInSearchResultsMessage.getText());
+    }
+
 }

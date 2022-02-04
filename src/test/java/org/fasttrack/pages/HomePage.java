@@ -8,7 +8,7 @@ import net.thucydides.core.annotations.DefaultUrl;
 public class HomePage extends BasePage {
 
     @FindBy(id = "menu-item-122")
-    private WebElementFacade myAccountLink;
+    private WebElementFacade myAccountPageButton;
 
     @FindBy(css = ".header-search-button")
     private WebElementFacade headerSearchButton;
@@ -22,18 +22,22 @@ public class HomePage extends BasePage {
     @FindBy(css = ".fa-shopping-cart")
     private WebElementFacade cartButton;
 
-    public void clickAccountLink() {
-        clickOn(myAccountLink);
+    public void clickAccountPage() {
+        clickOn(myAccountPageButton);
     }
+
     public void clickHeaderSearchButton() {
         clickOn(headerSearchButton);
     }
+
     public void setHeaderSearchButton(String product) {
         typeInto(headerSearchField, product);
     }
+
     public void clickDoSearchButton() {
         clickOn(doSearchButton);
     }
+
     public void clickCartButton() {
         clickOn(cartButton);
     }

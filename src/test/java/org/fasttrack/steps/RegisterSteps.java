@@ -27,6 +27,7 @@ public class RegisterSteps extends BaseSteps{
     public void fillRegisterEmail(String email){
         loginPage.setKnownEmailRegisterField(email);
     }
+
     @Step
     public void fillRegisterPassword(String pass){
         loginPage.setKnownPasswordRegisterField(pass);
@@ -36,6 +37,7 @@ public class RegisterSteps extends BaseSteps{
     public void assertVeryWeakRegisterPassword(){
         loginPage.assertVeryWeakRegisterPassword();
     }
+
     @Step
     public void assertWeakRegisterPassword(){
         loginPage.assertWeakRegisterPassword();

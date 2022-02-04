@@ -5,6 +5,8 @@ import org.junit.Test;
 public class CheckoutTest extends BaseTest{
     @Test
     public void checkoutTest(){
+        baseSteps.navigateToHomePage();
+    //    loginSteps.doLogin();
         searchSteps.doSearch("T-Shirt");
         cartSteps.clickAddToCartButtonInSearchPageFirstProduct();
         cartSteps.clickOnViewCartButtonInSearch();

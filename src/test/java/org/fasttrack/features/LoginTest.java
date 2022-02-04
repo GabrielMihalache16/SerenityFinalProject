@@ -9,6 +9,7 @@ public class LoginTest extends BaseTest {
 
     @Test
     public void loginWithValidCredentialsTest(){
+        baseSteps.navigateToHomePage();
         loginSteps.navigateToLoginPage();
         loginSteps.fillEmailField(USER_EMAIL);
         loginSteps.fillPasswordField(USER_PASS);
@@ -18,6 +19,7 @@ public class LoginTest extends BaseTest {
 
     @Test
     public void loginWithInvalidUsernameTest(){
+        baseSteps.navigateToHomePage();
         loginSteps.navigateToLoginPage();
         loginSteps.fillEmailField("dasdasda1230834");
         loginSteps.fillPasswordField(USER_PASS);
@@ -26,6 +28,7 @@ public class LoginTest extends BaseTest {
     }
     @Test
     public void loginWithInvalidEmailTest(){
+        baseSteps.navigateToHomePage();
         loginSteps.navigateToLoginPage();
         loginSteps.fillEmailField("asd@asd.asd");
         loginSteps.fillPasswordField(USER_PASS);
@@ -35,6 +38,7 @@ public class LoginTest extends BaseTest {
 
     @Test
     public void loginWithNoPasswordTest(){
+        baseSteps.navigateToHomePage();
         loginSteps.navigateToLoginPage();
         loginSteps.fillEmailField("dasdasda1230834");
         loginSteps.fillPasswordField("");
@@ -43,6 +47,7 @@ public class LoginTest extends BaseTest {
     }
     @Test
     public void loginWithNoUsernameTest(){
+        baseSteps.navigateToHomePage();
         loginSteps.navigateToLoginPage();
         loginSteps.fillEmailField("");
         loginSteps.fillPasswordField("a");
@@ -52,6 +57,7 @@ public class LoginTest extends BaseTest {
 
     @Test
     public void logoutTest(){
+        baseSteps.navigateToHomePage();
         loginSteps.navigateToLoginPage();
         loginSteps.fillEmailField(USER_EMAIL);
         loginSteps.fillPasswordField(USER_PASS);

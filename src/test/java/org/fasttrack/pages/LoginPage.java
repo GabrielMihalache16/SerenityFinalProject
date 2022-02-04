@@ -39,14 +39,17 @@ public class LoginPage extends BasePage{
     public void setLoginEmailField(String email){
         typeInto(emailLoginField, email);
     }
+
     public void setLoginPasswordField(String pass){
         typeInto(passwordLoginField, pass);
     }
+
     public void setRegisterEmailField(){
         String randEmail = randomAlphabetic(9, 14);
         typeInto(emailRegisterField, randEmail+"@gmail.com");
         System.out.println("The registered email is: " + randEmail + "@gmail.com");
     }
+
     public void setPasswordRegisterField(){
         String password = randomAlphabetic(9, 14);
         typeInto(passwordRegisterField, password);
@@ -56,15 +59,19 @@ public class LoginPage extends BasePage{
     public void setKnownPasswordRegisterField(String pass){
         typeInto(passwordRegisterField, pass);
     }
+
     public void setKnownEmailRegisterField(String email){
         typeInto(emailRegisterField, email);
     }
+
     public void clickLoginButton(){
         clickOn(loginButton);
     }
+
     public void clickRegisterButton(){
         clickOn(registerButton);
     }
+
     public void assertLogoutDone(){
         Assert.assertTrue(emailLoginField.isPresent());
     }
@@ -89,6 +96,7 @@ public class LoginPage extends BasePage{
         Assert.assertTrue(passwordLoginField.isPresent());
         Assert.assertTrue(loginButton.isPresent());
     }
+
     public void assertLoginWithNoUsername(){
         Assert.assertTrue(loginErrorMessage.containsText("Username is required."));
         Assert.assertTrue(emailLoginField.isPresent());
@@ -107,6 +115,7 @@ public class LoginPage extends BasePage{
         Assert.assertFalse(disabledRegisterButton.isClickable());
         Assert.assertTrue(weakPasswordRegisterMessage.containsText("Very weak"));
     }
+
     public void assertWeakRegisterPassword(){
         Assert.assertFalse(disabledRegisterButton.isClickable());
         Assert.assertTrue(weakPasswordRegisterMessage.containsText("Weak"));

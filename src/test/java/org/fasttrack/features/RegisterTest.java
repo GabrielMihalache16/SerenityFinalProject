@@ -7,6 +7,7 @@ import static utils.EnvConstants.USER_EMAIL;
 public class RegisterTest extends BaseTest{
     @Test
     public void randomCompleteRegisterTest(){
+        baseSteps.navigateToHomePage();
         loginSteps.navigateToLoginPage();
         registerSteps.fillRandomnlyRegisterEmail();
         registerSteps.fillRandomnlyRegisterPassword();
@@ -16,6 +17,7 @@ public class RegisterTest extends BaseTest{
 
     @Test
     public void veryWeakPasswordRegisterTest(){
+        baseSteps.navigateToHomePage();
         loginSteps.navigateToLoginPage();
         registerSteps.fillRandomnlyRegisterEmail();
         registerSteps.fillRegisterPassword("a");
@@ -23,6 +25,7 @@ public class RegisterTest extends BaseTest{
     }
     @Test
     public void weakPasswordRegisterTest(){
+        baseSteps.navigateToHomePage();
         loginSteps.navigateToLoginPage();
         registerSteps.fillRandomnlyRegisterEmail();
         registerSteps.fillRegisterPassword("asdfghjeul1");
@@ -30,6 +33,7 @@ public class RegisterTest extends BaseTest{
     }
     @Test
     public void usedEmailRegisterTest(){
+        baseSteps.navigateToHomePage();
         loginSteps.navigateToLoginPage();
         registerSteps.fillRegisterEmail(USER_EMAIL);
         registerSteps.fillRegisterPassword("asdfghjeul1535gfsr435");

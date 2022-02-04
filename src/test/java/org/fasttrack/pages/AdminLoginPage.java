@@ -4,7 +4,7 @@ import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.WebElementFacade;
 import org.junit.Assert;
 
-public class AdminLoginPage extends AdminBasePage{
+public class AdminLoginPage extends BasePage{
     @FindBy(id = "user_login")
     private WebElementFacade loginField;
 
@@ -20,12 +20,15 @@ public class AdminLoginPage extends AdminBasePage{
     public void setLoginField(String userName){
         typeInto(loginField, userName);
     }
+
     public void setLoginPasswordField(String pass){
         typeInto(passField, pass);
     }
+
     public void clickLogInButton(){
         clickOn(logInButton);
     }
+
     public void assertLoginDone(){
         waitFor(loginWelcomeText);
         Assert.assertEquals("Welcome to WordPress!", loginWelcomeText.getText());

@@ -42,15 +42,19 @@ public class CheckoutPage extends BasePage{
     public void setCheckoutFirstNameField(String firstName){
         typeInto(checkoutFirstNameField, firstName);
     }
+
     public void setCheckoutLastNameField(String lastName){
         typeInto(checkoutLastNameField, lastName);
     }
+
     public void setCheckoutCompanyNameField(String companyName){
         typeInto(checkoutCompanyNameField, companyName);
     }
+
     public void setCheckoutStreetAddressField(String streetAddress){
         typeInto(checkoutStreetAddressField, streetAddress);
     }
+
     public void setCheckoutCityField(String city){
         typeInto(checkoutCityField, city);
     }
@@ -59,18 +63,23 @@ public class CheckoutPage extends BasePage{
         Select county = new Select(checkoutCountySelect);
         county.selectByValue(cityInitials);
     }
+
     public void setCheckoutPostcodeField(String postcode){
         typeInto(checkoutPostcodeField, postcode);
     }
+
     public void setCheckoutPhoneField(String phoneNumber){
         typeInto(checkoutPhoneField, phoneNumber);
     }
+
     public void setEmailField(String email){
         typeInto(emailField, email);
     }
+
     public void clickPlaceOrderButton(){
         clickOn(placeOrderButton);
     }
+
     public void assertOrderReceived(){
         waitFor(orderReceivedText);
         String expected = "Thank you. Your order has been received.";

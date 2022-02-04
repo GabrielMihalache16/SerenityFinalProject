@@ -8,6 +8,7 @@ public class SearchSteps extends BaseSteps{
     public void clickOnHeaderSearchButton(){
         homePage.clickHeaderSearchButton();
     }
+
     @Step
     public void fillInHeaderSearchButton(String product) {
         homePage.setHeaderSearchButton(product);
@@ -40,6 +41,7 @@ public class SearchSteps extends BaseSteps{
     public void selectSortByPriceAsc(){
         searchResultPage.selectAscendingPriceOption();
     }
+
     @Step
     public void selectSortByPriceDesc(){
         searchResultPage.selectDescendingPriceOption();
@@ -53,5 +55,21 @@ public class SearchSteps extends BaseSteps{
     @Step
     public void isSearchSortDescendingCorrect(){
         searchResultPage.isPriceSortDescendingCorrect();
+    }
+
+    @Step
+    public void assertNoProductsDisplayedInSearch(){
+        searchResultPage.noProductsDisplayedInSearch();
+    }
+
+    @Step
+    public void isCreatedProductAvailableViaSearch(String productName){
+        try {
+            searchResultPage.assertFirstSearchProductIsDisplayed();
+            Assert.assertTrue(searchResultPage.isSearchCorrect(productName));
+        }
+        catch(org.openqa.selenium.NoSuchElementException ex) {
+            Assert.assertTrue(productPage.isProductTitleIsCorrectFromSearch(productName));
+        }
     }
 }

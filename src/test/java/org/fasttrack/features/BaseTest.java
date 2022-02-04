@@ -18,7 +18,6 @@ public class BaseTest {
     @Before
     public void maximise() {
         driver.manage().window().maximize();
-        driver.get(EnvConstants.BASE_URL);
     }
 
     @Steps
@@ -26,6 +25,12 @@ public class BaseTest {
 
     @Steps
     protected RegisterSteps registerSteps;
+
+    @Steps
+    protected AdminProductSteps adminProductSteps;
+
+    @Steps
+    protected AdminLoginSteps adminLoginSteps;
 
     @Steps
     protected SearchSteps searchSteps;
@@ -44,5 +49,8 @@ public class BaseTest {
 
     @Steps
     protected BaseSteps baseSteps;
+
+    @Steps
+    protected ProductSteps productSteps;
 
 }

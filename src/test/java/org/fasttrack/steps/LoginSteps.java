@@ -9,7 +9,7 @@ public class LoginSteps extends BaseSteps{
 
     @Step
     public void navigateToLoginPage(){
-        homePage.clickAccountLink();
+        homePage.clickAccountPage();
     }
 
     @Step
@@ -36,10 +36,16 @@ public class LoginSteps extends BaseSteps{
 
     @Step
     public void doLogin(){
-        homePage.clickAccountLink();
+        homePage.clickAccountPage();
         loginPage.setLoginEmailField(USER_EMAIL);
         loginPage.setLoginPasswordField(USER_PASS);
         loginPage.clickLoginButton();
+    }
+
+    @Step
+    public void doLogOut(){
+        homePage.clickAccountPage();
+        myAccountPage.clickLeftLogoutButton();
     }
 
     @Step
@@ -52,6 +58,7 @@ public class LoginSteps extends BaseSteps{
     public void assertLogoutIsDone(){
         loginPage.assertLogoutDone();
     }
+
     @Step
     public void assertLoginWithInvalidUsername(){
         loginPage.assertLoginWithInvalidUsername();
